@@ -1,0 +1,17 @@
+{
+  "name": "pingdomgrafanaproxy",
+  "version": "1.0.0",
+  "description": "Proxy for Pingdom API",
+  "main": "proxy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "repository": "github:opetushallitus/grafana",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^0.19.1",
+    "zlib": "^1.0.5"
+  }
+}

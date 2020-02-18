@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "type": "db",
+    "canSave": true,
+    "canEdit": true,
+    "canStar": true,
+    "slug": "opintopolku-mongodb",
+    "expires": "0001-01-01T00:00:00Z",
+    "created": "2018-01-23T18:30:53+02:00",
+    "updated": "2018-01-23T18:30:53+02:00",
+    "updatedBy": "admin",
+    "createdBy": "admin",
+    "version": 1
+  },
+  "dashboard": {
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "hideControls": false,
+    "id": null,
+    "links": [],
+    "refresh": false,
+    "rows": [
+      {
+        "collapse": false,
+        "height": 250,
+        "panels": [
+          {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "fill": 1,
+            "id": 1,
+            "legend": {
+              "alignAsTable": true,
+              "avg": false,
+              "current": false,
+              "max": false,
+              "min": false,
+              "show": true,
+              "total": false,
+              "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "percentage": false,
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "span": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "expr": "node_filesystem_free{job=\"ecs_and_ec2_node_exporter\", instance=~\"mongocluster.*\",mountpoint=\"/data\"}",
+                "format": "time_series",
+                "instant": false,
+                "intervalFactor": 2,
+                "legendFormat": "{{instance}}",
+                "refId": "A"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Free Disk /data",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ]
+          },
+          {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "fill": 1,
+            "id": 8,
+            "legend": {
+              "alignAsTable": true,
+              "avg": false,
+              "current": false,
+              "max": false,
+              "min": false,
+              "show": true,
+              "total": false,
+              "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "percentage": false,
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "span": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "expr": "node_filesystem_free{job=\"ecs_and_ec2_node_exporter\", instance=~\"mongocluster.*\",mountpoint=\"/journal\"}",
+                "format": "time_series",
+                "intervalFactor": 2,
+                "legendFormat": "{{instance}}",
+                "refId": "A"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Free Disk /journal",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ]
+          },
+          {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "fill": 1,
+            "id": 12,
+            "legend": {
+              "alignAsTable": true,
+              "avg": false,
+              "current": false,
+              "max": false,
+              "min": false,
+              "show": true,
+              "total": false,
+              "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "percentage": false,
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "span": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "expr": "node_filesystem_free{job=\"ecs_and_ec2_node_exporter\", instance=~\"mongocluster.*\",mountpoint=\"/log\"}",
+                "format": "time_series",
+                "intervalFactor": 2,
+                "legendFormat": "{{instance}}",
+                "refId": "A"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Free Disk /log",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ]
+          },
+          {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "fill": 1,
+            "id": 40,
+            "legend": {
+              "alignAsTable": true,
+              "avg": false,
+              "current": false,
+              "max": false,
+              "min": false,
+              "show": true,
+              "total": false,
+              "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "percentage": false,
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "span": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "dimensions": {
+                  "InstanceId": "i-003a59dd885288d87"
+                },
+                "expr": "node_memory_MemAvailable{job=\"ecs_and_ec2_node_exporter\",instance=~\"mongocluster.*\"}",
+                "format": "time_series",
+                "intervalFactor": 2,
+                "legendFormat": "{{instance}} ",
+                "metricName": "DiskReadOps",
+                "namespace": "AWS/EC2",
+                "period": "",
+                "refId": "A",
+                "region": "REGION",
+                "statistics": [
+                  "Average"
+                ]
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Available Memory",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ]
+          }
+        ],
+        "repeat": null,
+        "repeatIteration": null,
+        "repeatRowId": null,
+        "showTitle": false,
+        "title": "Dashboard Row",
+        "titleSize": "h6"
+      }
+    ],
+    "schemaVersion": 14,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ]
+    },
+    "timezone": "",
+    "title": "MongoDB disk and mem",
+    "version": 1
+  }
+}

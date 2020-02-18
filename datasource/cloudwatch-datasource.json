@@ -1,0 +1,12 @@
+{
+  "name": "CloudWatch",
+  "type": "cloudwatch",
+  "access": "proxy",
+  "database": "default",
+  "basicAuth": false,
+  "jsonData": {
+    "authType": "credentials",
+    "defaultRegion": "REGION",
+    "timeField": "@timestamp"
+  }
+}

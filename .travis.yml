@@ -1,0 +1,26 @@
+sudo: required
+language: minimal
+services:
+  - docker
+
+env:
+  global:
+    # AWS_ACCESS_KEY_ID
+    - secure: "mr1FVnMABDF3uHw8scE+8zU/X0WlXsqupfG+Hq4aHFhs5qSMvhr8Lj4zDqySkPqCvYNiix9Fk1KpQ2EvrOgq0KPL80iULuocsq3ahnIuaPqMlS69YMR8XhES2a0BJkEvnIRYHwAOdCs+XfYfdhTmQPE73qVjxOxFA1WYQiXqDkUCiWD5Y52MdeJmxAjbvi4nHVcQayg9u00q1gB1J7A/pnDXvl5zrTBWQLVBB5VxnZ8fX2aQftCWFsV6O6EKc2WJEgSwHmYN5LNiJObkJb7xU4ptgPZJFkPArR/YMqhG0YAIlIFReJ+MZE3AymICNI+va6W++ZcDljnzTqVr3pU1lD5v2y/qXXY1556eaDpxLtneTpbZwXjkhxW2+A+AGQgvupd7rEbaR9wjUYn+pZ4+gHQj8Dt/GuGGzg2Re495HJHWP7qXYAHoxNW2giqmM3YXkL656uORiIb9uKsusyj49gV2UzH7sab/TsaY278vMRxwzugRduvlIM4glufxoI2mbeyVq+G0UeGUiImFDLaewSrl9p1wSrSYGRdwd/y2ODt/68oIgwrDQpjSZ0M3LlETst3AsBbEz15Vou/rR1dhDH5E/ksDd8wU6ECUQn4STkUaBYNCSydrbUNeOOkPG+EZBI3GWD+JEv9ZFZr3wBBEq55TEPllu33yPjqewCkaGMw="
+    # AWS_SECRET_ACCESS_KEY
+    - secure: "I4+znxCPxMURMJgUOTfR6RrCFgb+90QTiCkxGGxmTldiUtGxO1wp4vlSqAAw2mwf6ddLm+JdGddmYpmAWGGpCcwDE06cIC8yW2oGXfYz/42xhxA0QPqQaz/fCWM3J44kUSMQMOMdt2KEsIMKb02hfTrMOkUle75WnPWzjzDiMKs0dRS84w1ga0P1O+7KMEp7B2kk5IAHpwmGKfRdgLchNPIW2raoc9WyJsC67Sq/pwHYP5Qubve0GraeItb+dyJa1dJ8bbVXuf5DtA9eGxQXB8TdS5KZDLwLdoIfuvn7hngrCwmK/VkxfQczKQMWZ8kSOynLxm2UuqssbJKJtym6xh6JQ6kfL96hxqT+mUO5TW5ajlq4GwPcx/2ntLgFvP6mbvvc1cYIOFovrVjcf1WJ7lKbTnezARn4RCuW4Vx3h+i7Heeny2eg/WU5ObSbwgje9YQ0m71qpA0edFW02oB5AEPl+rvuhzP2/+AA4AWEYAWCMTrVivsx0Ud0m/NikbA13eEqwz4qgmVVQ4j/lQSgyJckMBJYL74+KMkistw694hPp/feWhAlrW4ZGgxUBkBJQsbn3WInZSsdcC1/9My1FmEQ99Nrk9D7HkfXwWX9B687ezQdN4CMXCPbguFJBQpvTQlqiuVhvNqqm8QDXCFkIquVmXvOB3cZ2GafX0pdhKI="
+
+install:
+  - git clone https://github.com/Opetushallitus/ci-tools.git
+  - source ci-tools/common/setup-tools.sh
+  - export ARTIFACT_NAME="grafana"
+
+script:
+  - export DOCKER_TARGET="${ECR_REPO}/${ARTIFACT_NAME}:ci-${TRAVIS_BUILD_NUMBER}"
+  - docker build -t ${DOCKER_TARGET} .
+
+deploy:
+  provider: script
+  script: ./ci-tools/build/upload-image.sh $ARTIFACT_NAME
+  on:
+    all_branches: true
