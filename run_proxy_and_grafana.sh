@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -euo pipefail
-
 /run.sh & \
 node /grafana_proxy/proxy.js & \
 timeout -s TERM 60 bash -c \
