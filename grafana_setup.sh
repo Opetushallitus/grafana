@@ -1,8 +1,7 @@
 #!/bin/sh
 
 echo "Setting admin password..."
-curl -s -H "Content-Type: application/json" --request PUT --data \'\{"password":${GRAFANA_ADMIN_PASSWORD}\}\' \
-    http://admin:admin@localhost:3000/api/admin/users/1/password
+curl -s -H "Content-Type: application/json" --request PUT --data "{ \"password\":\"$GRAFANA_ADMIN_PASSWORD\" }" http://admin:admin@localhost:3000/api/admin/users/1/password
 
 echo "Creating data sources..."
 sed -i -e "s/PUBLICHOSTEDZONE/${PUBLIC_HOSTED_ZONE}/g" /etc/grafana/datasource/*
