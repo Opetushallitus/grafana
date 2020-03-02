@@ -1,4 +1,4 @@
-FROM grafana/grafana:6.6.0
+FROM grafana/grafana:6.6.2
 USER root
 RUN apk add --update nodejs npm curl
 USER grafana
