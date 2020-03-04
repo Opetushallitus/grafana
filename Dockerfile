@@ -1,6 +1,10 @@
-FROM grafana/grafana:6.6.2
+FROM grafana/grafana:6.6.2-ubuntu
 USER root
-RUN apk add --update nodejs npm curl
+RUN apt-get update
+RUN apt-get -y install curl gnupg
+RUN curl -sL https://deb.nodesource.com/setup_12.x  | bash -
+RUN apt-get -y install nodejs
+RUN apt-get clean
 USER grafana
 COPY run_proxy_and_grafana.sh /
 COPY --chown=grafana:grafana grafana_proxy /grafana_proxy
