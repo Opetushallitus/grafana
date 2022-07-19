@@ -849,34 +849,33 @@
     "templating": {
       "list": [
         {
-          "current": {},
-          "hide": 0,
-          "includeAll": false,
-          "label": "Datasource",
-          "multi": false,
-          "name": "datasource",
-          "options": [],
-          "query": "cloudwatch",
-          "refresh": 1,
-          "regex": "",
-          "skipUrlSync": false,
-          "type": "datasource"
-        },
-        {
-          "current": {},
-          "datasource": "CloudWatch",
+          "allValue": null,
+          "current": {
+            "text": "REGION",
+            "value": "REGION"
+          },
           "hide": 0,
           "includeAll": false,
           "label": "Region",
           "multi": false,
           "name": "region",
-          "options": [],
-          "query": "regions()",
-          "refresh": 1,
-          "type": "query"
+          "options": [
+            {
+              "selected": true,
+              "text": "REGION",
+              "value": "REGION"
+            }
+          ],
+          "query": "REGION",
+          "type": "custom"
         },
         {
-          "current": {},
+          "allValue": null,
+          "current": {
+            "isNone": true,
+            "text": "None",
+            "value": ""
+          },
           "datasource": "CloudWatch",
           "hide": 0,
           "includeAll": false,
@@ -887,7 +886,12 @@
           "query": "dimension_values($region,AWS/ELB,Latency,LoadBalancerName)",
           "refresh": 1,
           "regex": "/.*ENVIRONMENT.*/",
-          "type": "query"
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
         }
       ]
     },
