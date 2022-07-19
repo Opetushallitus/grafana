@@ -14,17 +14,7 @@
   },
   "dashboard": {
     "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": "-- Grafana --",
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations & Alerts",
-          "type": "dashboard"
-        }
-      ]
+      "list": []
     },
     "description": "Visualize AWS SES metrics",
     "editable": true,
@@ -42,8 +32,6 @@
           {
             "aliasColors": {},
             "bars": false,
-            "dashLength": 10,
-            "dashes": false,
             "datasource": "CloudWatch",
             "editable": true,
             "error": false,
@@ -92,7 +80,6 @@
                 "yaxis": 2
               }
             ],
-            "spaceLength": 10,
             "span": 12,
             "stack": false,
             "steppedLine": false,
@@ -168,7 +155,6 @@
             },
             "type": "graph",
             "xaxis": {
-              "buckets": null,
               "mode": "time",
               "name": null,
               "show": true,
@@ -208,8 +194,6 @@
           {
             "aliasColors": {},
             "bars": false,
-            "dashLength": 10,
-            "dashes": false,
             "datasource": "CloudWatch",
             "editable": true,
             "error": false,
@@ -262,7 +246,6 @@
                 "yaxis": 2
               }
             ],
-            "spaceLength": 10,
             "span": 12,
             "stack": false,
             "steppedLine": false,
@@ -338,7 +321,6 @@
             },
             "type": "graph",
             "xaxis": {
-              "buckets": null,
               "mode": "time",
               "name": null,
               "show": true,
@@ -378,8 +360,6 @@
           {
             "aliasColors": {},
             "bars": false,
-            "dashLength": 10,
-            "dashes": false,
             "datasource": "CloudWatch",
             "editable": true,
             "error": false,
@@ -428,7 +408,6 @@
                 "yaxis": 2
               }
             ],
-            "spaceLength": 10,
             "span": 12,
             "stack": false,
             "steppedLine": false,
@@ -475,7 +454,6 @@
             },
             "type": "graph",
             "xaxis": {
-              "buckets": null,
               "mode": "time",
               "name": null,
               "show": true,
@@ -513,7 +491,7 @@
         "height": "25px",
         "panels": [
           {
-            "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ses-metricscollected.html\">AWS CloudWatch SES documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.net/dashboards/1519\">Installed from Grafana.net dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
+            "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ses-metricscollected.html\">AWS CloudWatch SES documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.com/dashboards/1519\">Installed from Grafana.com dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
             "editable": true,
             "error": false,
             "id": 2,
@@ -535,31 +513,44 @@
     "schemaVersion": 14,
     "style": "dark",
     "tags": [
+      "monitoringartist",
       "cloudwatch"
     ],
     "templating": {
       "list": [
         {
+          "current": {},
+          "hide": 0,
+          "includeAll": false,
+          "label": "Datasource",
+          "multi": false,
+          "name": "datasource",
+          "options": [],
+          "query": "cloudwatch",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "type": "datasource"
+        },
+        {
           "allValue": null,
-          "current": {
-            "tags": [],
-            "text": "REGION",
-            "value": "REGION"
-          },
+          "current": {},
+          "datasource": "CloudWatch",
           "hide": 0,
           "includeAll": false,
           "label": "Region",
           "multi": false,
           "name": "region",
-          "options": [
-            {
-              "selected": true,
-              "text": "REGION",
-              "value": "REGION"
-            }
-          ],
-          "query": "REGION",
-          "type": "custom"
+          "options": [],
+          "query": "regions()",
+          "refresh": 1,
+          "regex": "",
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
         }
       ]
     },
@@ -594,6 +585,6 @@
     },
     "timezone": "browser",
     "title": "AWS SES",
-    "version": 3
+    "version": 6
   }
 }

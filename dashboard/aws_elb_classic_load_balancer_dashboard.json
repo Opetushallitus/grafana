@@ -13,43 +13,39 @@
     "version": 1
   },
   "dashboard": {
-    "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": "-- Grafana --",
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations & Alerts",
-          "type": "dashboard"
-        }
-      ]
-    },
-    "description": "Visualize AWS ELB Classic Load Balancer metrics",
-    "editable": true,
-    "gnetId": 644,
-    "graphTooltip": 0,
-    "hideControls": false,
     "id": null,
-    "links": [],
-    "refresh": false,
+    "title": "AWS ELB Classic Load Balancer",
+    "description": "Visualize AWS ELB Classic Load Balancer metrics",
+    "tags": [
+      "monitoringartist",
+      "cloudwatch"
+    ],
+    "style": "dark",
+    "timezone": "browser",
+    "editable": true,
+    "hideControls": false,
+    "sharedCrosshair": false,
     "rows": [
       {
         "collapse": false,
+        "editable": true,
         "height": "300px",
         "panels": [
           {
             "aliasColors": {},
             "bars": false,
-            "dashLength": 10,
-            "dashes": false,
             "datasource": "CloudWatch",
             "editable": true,
             "error": false,
             "fill": 1,
-            "grid": {},
+            "grid": {
+              "threshold1": null,
+              "threshold1Color": "rgba(216, 200, 27, 0.27)",
+              "threshold2": null,
+              "threshold2Color": "rgba(234, 112, 112, 0.22)"
+            },
             "id": 7,
+            "isNew": true,
             "legend": {
               "alignAsTable": true,
               "avg": true,
@@ -76,7 +72,6 @@
                 "yaxis": 2
               }
             ],
-            "spaceLength": 10,
             "span": 12,
             "stack": false,
             "steppedLine": false,
@@ -144,7 +139,6 @@
                 ]
               }
             ],
-            "thresholds": [],
             "timeFrom": null,
             "timeShift": null,
             "title": "RequestCount / Latency",
@@ -156,11 +150,7 @@
             },
             "type": "graph",
             "xaxis": {
-              "buckets": null,
-              "mode": "time",
-              "name": null,
-              "show": true,
-              "values": []
+              "show": true
             },
             "yaxes": [
               {
@@ -182,15 +172,11 @@
             ]
           }
         ],
-        "repeat": null,
-        "repeatIteration": null,
-        "repeatRowId": null,
-        "showTitle": false,
-        "title": "Row",
-        "titleSize": "h6"
+        "title": "Row"
       },
       {
         "collapse": false,
+        "editable": true,
         "height": "250px",
         "panels": [
           {
@@ -201,14 +187,18 @@
               "HTTPCode_ELB_5XX_Sum": "#99440A"
             },
             "bars": false,
-            "dashLength": 10,
-            "dashes": false,
             "datasource": "CloudWatch",
             "editable": true,
             "error": false,
             "fill": 1,
-            "grid": {},
+            "grid": {
+              "threshold1": null,
+              "threshold1Color": "rgba(216, 200, 27, 0.27)",
+              "threshold2": null,
+              "threshold2Color": "rgba(234, 112, 112, 0.22)"
+            },
             "id": 1,
+            "isNew": true,
             "legend": {
               "alignAsTable": true,
               "avg": true,
@@ -239,7 +229,6 @@
                 "yaxis": 2
               }
             ],
-            "spaceLength": 10,
             "span": 12,
             "stack": true,
             "steppedLine": false,
@@ -431,7 +420,6 @@
                 ]
               }
             ],
-            "thresholds": [],
             "timeFrom": null,
             "timeShift": null,
             "title": "HTTPCode",
@@ -443,11 +431,7 @@
             },
             "type": "graph",
             "xaxis": {
-              "buckets": null,
-              "mode": "time",
-              "name": null,
-              "show": true,
-              "values": []
+              "show": true
             },
             "yaxes": [
               {
@@ -469,28 +453,28 @@
             ]
           }
         ],
-        "repeat": null,
-        "repeatIteration": null,
-        "repeatRowId": null,
-        "showTitle": false,
-        "title": "New row",
-        "titleSize": "h6"
+        "title": "New row"
       },
       {
         "collapse": false,
+        "editable": true,
         "height": "250px",
         "panels": [
           {
             "aliasColors": {},
             "bars": false,
-            "dashLength": 10,
-            "dashes": false,
             "datasource": "CloudWatch",
             "editable": true,
             "error": false,
             "fill": 1,
-            "grid": {},
+            "grid": {
+              "threshold1": null,
+              "threshold1Color": "rgba(216, 200, 27, 0.27)",
+              "threshold2": null,
+              "threshold2Color": "rgba(234, 112, 112, 0.22)"
+            },
             "id": 8,
+            "isNew": true,
             "legend": {
               "alignAsTable": true,
               "avg": true,
@@ -521,7 +505,6 @@
                 "yaxis": 2
               }
             ],
-            "spaceLength": 10,
             "span": 12,
             "stack": false,
             "steppedLine": false,
@@ -589,7 +572,6 @@
                 ]
               }
             ],
-            "thresholds": [],
             "timeFrom": null,
             "timeShift": null,
             "title": "SpilloverCount / SurgeQueueLength",
@@ -601,11 +583,7 @@
             },
             "type": "graph",
             "xaxis": {
-              "buckets": null,
-              "mode": "time",
-              "name": null,
-              "show": true,
-              "values": []
+              "show": true
             },
             "yaxes": [
               {
@@ -627,15 +605,11 @@
             ]
           }
         ],
-        "repeat": null,
-        "repeatIteration": null,
-        "repeatRowId": null,
-        "showTitle": false,
-        "title": "New row",
-        "titleSize": "h6"
+        "title": "New row"
       },
       {
         "collapse": false,
+        "editable": true,
         "height": "250px",
         "panels": [
           {
@@ -643,14 +617,18 @@
               "BackendConnectionErrors_Sum": "#BF1B00"
             },
             "bars": false,
-            "dashLength": 10,
-            "dashes": false,
             "datasource": "CloudWatch",
             "editable": true,
             "error": false,
             "fill": 1,
-            "grid": {},
+            "grid": {
+              "threshold1": null,
+              "threshold1Color": "rgba(216, 200, 27, 0.27)",
+              "threshold2": null,
+              "threshold2Color": "rgba(234, 112, 112, 0.22)"
+            },
             "id": 9,
+            "isNew": true,
             "legend": {
               "alignAsTable": true,
               "avg": true,
@@ -685,7 +663,6 @@
                 "yaxis": 2
               }
             ],
-            "spaceLength": 10,
             "span": 12,
             "stack": true,
             "steppedLine": false,
@@ -784,7 +761,6 @@
                 ]
               }
             ],
-            "thresholds": [],
             "timeFrom": null,
             "timeShift": null,
             "title": "HostCount / BackendConnectionErrors",
@@ -796,11 +772,7 @@
             },
             "type": "graph",
             "xaxis": {
-              "buckets": null,
-              "mode": "time",
-              "name": null,
-              "show": true,
-              "values": []
+              "show": true
             },
             "yaxes": [
               {
@@ -822,22 +794,19 @@
             ]
           }
         ],
-        "repeat": null,
-        "repeatIteration": null,
-        "repeatRowId": null,
-        "showTitle": false,
-        "title": "New row",
-        "titleSize": "h6"
+        "title": "New row"
       },
       {
         "collapse": false,
+        "editable": true,
         "height": "25px",
         "panels": [
           {
-            "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html\">AWS ELB documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.net/dashboards/644\">Installed from Grafana.net dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
+            "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html\">AWS ELB documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.com/dashboards/644\">Installed from Grafana.com dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
             "editable": true,
             "error": false,
             "id": 2,
+            "isNew": true,
             "links": [],
             "mode": "html",
             "span": 12,
@@ -845,68 +814,9 @@
             "type": "text"
           }
         ],
-        "repeat": null,
-        "repeatIteration": null,
-        "repeatRowId": null,
-        "showTitle": false,
-        "title": "New row",
-        "titleSize": "h6"
+        "title": "New row"
       }
     ],
-    "schemaVersion": 14,
-    "style": "dark",
-    "tags": [
-      "cloudwatch"
-    ],
-    "templating": {
-      "list": [
-        {
-          "allValue": null,
-          "current": {
-            "text": "REGION",
-            "value": "REGION"
-          },
-          "hide": 0,
-          "includeAll": false,
-          "label": "Region",
-          "multi": false,
-          "name": "region",
-          "options": [
-            {
-              "selected": true,
-              "text": "REGION",
-              "value": "REGION"
-            }
-          ],
-          "query": "REGION",
-          "type": "custom"
-        },
-        {
-          "allValue": null,
-          "current": {
-            "isNone": true,
-            "text": "None",
-            "value": ""
-          },
-          "datasource": "CloudWatch",
-          "hide": 0,
-          "includeAll": false,
-          "label": "LoadBalancerName",
-          "multi": false,
-          "name": "loadbalancername",
-          "options": [],
-          "query": "dimension_values($region,AWS/ELB,Latency,LoadBalancerName)",
-          "refresh": 1,
-          "regex": "/.*ENVIRONMENT.*/",
-          "sort": 0,
-          "tagValuesQuery": "",
-          "tags": [],
-          "tagsQuery": "",
-          "type": "query",
-          "useTags": false
-        }
-      ]
-    },
     "time": {
       "from": "now-12h",
       "to": "now"
@@ -936,8 +846,58 @@
         "30d"
       ]
     },
-    "timezone": "browser",
-    "title": "AWS ELB Classic Load Balancer",
-    "version": 1
+    "templating": {
+      "list": [
+        {
+          "current": {},
+          "hide": 0,
+          "includeAll": false,
+          "label": "Datasource",
+          "multi": false,
+          "name": "datasource",
+          "options": [],
+          "query": "cloudwatch",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "type": "datasource"
+        },
+        {
+          "current": {},
+          "datasource": "CloudWatch",
+          "hide": 0,
+          "includeAll": false,
+          "label": "Region",
+          "multi": false,
+          "name": "region",
+          "options": [],
+          "query": "regions()",
+          "refresh": 1,
+          "type": "query"
+        },
+        {
+          "current": {},
+          "datasource": "CloudWatch",
+          "hide": 0,
+          "includeAll": false,
+          "label": "LoadBalancerName",
+          "multi": false,
+          "name": "loadbalancername",
+          "options": [],
+          "query": "dimension_values($region,AWS/ELB,Latency,LoadBalancerName)",
+          "refresh": 1,
+          "regex": "/.*ENVIRONMENT.*/",
+          "type": "query"
+        }
+      ]
+    },
+    "annotations": {
+      "list": []
+    },
+    "refresh": false,
+    "schemaVersion": 12,
+    "version": 0,
+    "links": [],
+    "gnetId": 644
   }
 }
