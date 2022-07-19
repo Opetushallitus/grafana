@@ -5,7 +5,7 @@
   "database": "default",
   "basicAuth": false,
   "jsonData": {
-    "authType": "credentials",
+    "authType": "default",
     "defaultRegion": "REGION",
     "timeField": "@timestamp"
   }
