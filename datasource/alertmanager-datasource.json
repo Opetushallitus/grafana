@@ -1,6 +1,6 @@
 {
   "name": "AlertManager",
-  "type": "camptocamp-prometheus-alertmanager-datasource",
+  "type": "alertmanager",
   "access": "proxy",
   "url": "http://prometheus-1.prometheus.PUBLICHOSTEDZONE:9093",
   "basicAuth": false,
