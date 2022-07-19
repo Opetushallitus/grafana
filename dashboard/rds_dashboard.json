@@ -8155,7 +8155,7 @@
           ],
           "query": "aws_rds_free_storage_space_average{job=\"aws_rds\",dbinstance_identifier=~\"ENVIRONMENT.*\"}",
           "refresh": 0,
-          "regex": "/dbinstance_identifier=\"(.*)\",i/",
+          "regex": "/.*dbinstance_identifier=\"([^\"]*).*/",
           "sort": 1,
           "tagValuesQuery": "",
           "tags": [],

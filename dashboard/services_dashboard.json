@@ -19835,15 +19835,14 @@
     "templating": {
       "list": [
         {
-          "allValue": null,
           "current": {
-            "selected": false,
+            "selected": true,
             "text": "All",
             "value": "$__all"
           },
           "datasource": "Prometheus",
           "hide": 0,
-          "includeAll": false,
+          "includeAll": true,
           "label": "Instance",
           "multi": true,
           "name": "instance",
