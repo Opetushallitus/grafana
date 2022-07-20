@@ -629,7 +629,7 @@
           "options": [],
           "query": "dimension_values($region,AWS/ECS,CPUUtilization,ServiceName)",
           "refresh": 1,
-          "regex": "",
+          "regex": "/.*ENVIRONMENT.*/",
           "skipUrlSync": false,
           "sort": 0,
           "tagValuesQuery": "",
