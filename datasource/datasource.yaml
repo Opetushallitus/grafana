@@ -1,0 +1,21 @@
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: $PROMETHEUS_URL
+    sigV4Auth: true
+  - name: Alertmanager
+    type: alertmanager
+    access: proxy
+    url: $PROMETHEUS_URL/alertmanager
+    sigV4Auth: true
+    jsonData:
+      implementation: prometheus
+  - name: Cloudwatch
+    type: cloudwatch
+    access: proxy
+    sigV4Auth: true
+    jsonData:
+      authType: default
+      defaultRegion: eu-west-1
+      timeField: "@timestamp"
