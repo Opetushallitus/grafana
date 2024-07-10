@@ -9,5 +9,5 @@ RUN grafana cli plugins install ryantxu-ajax-panel
 COPY grafana_setup.sh /
 COPY --chown=grafana:root dashboard /etc/grafana/dashboard
 COPY --chown=grafana:root user /etc/grafana/user
-COPY --chown=grafana:root datasource/datasource.yaml /etc/grafana/provisioning/datasource.yaml
+COPY --chown=grafana:root provisioning /etc/grafana/provisioning
 ENTRYPOINT ["/run_proxy_and_grafana.sh"]
