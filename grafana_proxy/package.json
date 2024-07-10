@@ -10,8 +10,7 @@
   "repository": "github:opetushallitus/grafana",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "http-proxy-middleware": "^0.19.1",
-    "zlib": "^1.0.5"
+    "express": "^4.19.2",
+    "http-proxy-middleware": "^3.0.0"
   }
 }

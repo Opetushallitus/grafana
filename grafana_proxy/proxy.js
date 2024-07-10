@@ -1,6 +1,6 @@
 const express = require("express");
-const proxy = require("http-proxy-middleware");
-const zlib = require("zlib");
+const { createProxyMiddleware } = require("http-proxy-middleware");
+const { gunzipSync, gzipSync } = require("node:zlib");
 
 const app = express();
 
@@ -8,7 +8,7 @@ app.get("/health", (req, res) => res.send("This is fine."));
 
 app.use(
   "/api/2.1/checks",
-  proxy({
+  createProxyMiddleware({
     target: "https://api.pingdom.com",
     changeOrigin: true,
     selfHandleResponse: true,
@@ -19,7 +19,7 @@ app.use(
       });
       proxyRes.on("end", function() {
         try {
-          const bodyString = zlib.gunzipSync(originalBody).toString("utf-8");
+          const bodyString = gunzipSync(originalBody).toString("utf-8");
           const newBody = JSON.parse(bodyString);
 
           checksFiltered = newBody.checks.filter(
@@ -38,7 +38,7 @@ app.use(
             "content-type": "text/json; charset=utf-8",
             "content-encoding": "gzip"
           });
-          res.write(zlib.gzipSync(JSON.stringify(newBody)));
+          res.write(gzipSync(JSON.stringify(newBody)));
           res.end();
         } catch (err) {
           res.writeHead(500, {
