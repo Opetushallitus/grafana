@@ -1,40 +1,65 @@
-name: Grafana
+name: Grafana build
 
 on:
   push:
     paths-ignore:
       - '**.md'
 
+
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: write    # This is required for actions/checkout read/write
+
+
+env:
+  ECR_REPO: 190073735177.dkr.ecr.eu-west-1.amazonaws.com/utility/grafana
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Set up variables
-        shell: bash
-        run: |
-          export ECR_REPO=190073735177.dkr.ecr.eu-west-1.amazonaws.com/utility
-          export IMAGE_LABEL=ga-${GITHUB_RUN_NUMBER}
-          echo "ecr_repo=${ECR_REPO}" >> $GITHUB_ENV
-          echo "image_label=${IMAGE_LABEL}" >> $GITHUB_ENV
-          echo "docker_target=${ECR_REPO}/grafana:${IMAGE_LABEL}" >> $GITHUB_ENV
-      - name: Build container image
-        shell: bash
-        env:
-          DOCKER_TARGET: ${{ env.docker_target }}
-          ECR_REPO: ${{ env.ecr_repo }}
-          IMAGE_LABEL: ${{ env.image_label }}
-        run: |
-          docker build -t ${DOCKER_TARGET} .
-      - name: Deploy container image to ECR
-        shell: bash
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          GITHUB_RUN_NUMBER: ${{ github.run_number }}
-          ECR_REPO: ${{ env.ecr_repo }}
-        run: |
-          git clone https://github.com/Opetushallitus/ci-tools.git
-          aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 190073735177.dkr.ecr.eu-west-1.amazonaws.com
-          ./ci-tools/github-build/upload-image.sh grafana ${GITHUB_REF_NAME}
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_OPH_UTILITY_ROLE_ARN }}
+          role-session-name: grafana-image-deploy
+          aws-region: eu-west-1
+
+      - name: Get ECR Registry
+        id: ecr-login
+        uses: aws-actions/amazon-ecr-login@v2
+  
+      - name: Docker meta for image
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            ${{ env.ECR_REPO }}
+          tags: |
+            type=raw,value=ga-${{ github.run_number }}
+            type=ref,event=branch
+            type=ref,event=tag
+            type=ref,event=pr
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+    
+      - name: Setup buildx
+        uses: docker/setup-buildx-action@v3
+        id: buildx
+      
+      - name: Login to ECR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ steps.ecr-login.outputs.registry }}
+
+      - name: Build and export to Docker
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          platforms: linux/amd64, linux/arm64
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
