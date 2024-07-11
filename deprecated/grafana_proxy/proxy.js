@@ -6,13 +6,24 @@ const app = express();
 
 app.get("/health", (req, res) => res.send("This is fine."));
 
+const onProxyRes = function (proxyRes, req, res) {
+  proxyRes
+}
+
+const options = {
+  target: "https://api.pingdom.com",
+  changeOrigin: true,
+  selfHandleResponse: true,
+  on: { proxyRes: onProxyRes }
+}
+
 app.use(
   "/api/2.1/checks",
   createProxyMiddleware({
     target: "https://api.pingdom.com",
     changeOrigin: true,
     selfHandleResponse: true,
-    onProxyRes: function(proxyRes, req, res) {
+    onProxyRes: (proxyRes, req, res) => {
       let originalBody = Buffer.from([]);
       proxyRes.on("data", data => {
         originalBody = Buffer.concat([originalBody, data]);
