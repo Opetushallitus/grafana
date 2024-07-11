@@ -1,0 +1,9 @@
+{
+  "name": "Prometheus",
+  "type": "prometheus",
+  "access": "proxy",
+  "url": "PROMETHEUS_URL",
+  "basicAuth": false,
+  "sigV4Auth": true,
+  "default": true
+}
