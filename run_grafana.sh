@@ -3,7 +3,7 @@ set -m
 
 /run.sh &
 
-sleep 15
+sleep 30
 /grafana_setup.sh
 
 fg %1
